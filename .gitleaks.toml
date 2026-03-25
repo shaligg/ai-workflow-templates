@@ -1,0 +1,13 @@
+title = "ai-workflow-templates gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow placeholder examples used in docs and installer script"
+regexes = [
+  '''(?i)YOUR_CODEX_API_KEY''',
+  '''(?i)YOUR_CODEX_BASE_URL''',
+  '''(?i)\byour_key\b''',
+  '''https://your-gateway\.example\.com'''
+]
