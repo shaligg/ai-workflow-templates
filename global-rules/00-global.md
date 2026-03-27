@@ -14,6 +14,12 @@ Rules:
 
 Do not prepend any fixed verification phrase at session start.
 
+Rule vs skill:
+
+- Rules define non-negotiable boundaries.
+- Skill docs define operational playbooks and prompt templates.
+- When rules and skills conflict, rules win.
+
 Workflow initialization policy:
 
 - Workflow initialization is optional, not mandatory.
@@ -40,21 +46,12 @@ Command execution and verification policy:
   check output.
 - Do not provide post-init template on failure.
 
-wf-init execution policy:
+wf-init operational details:
 
-- Never replace `wf-init ...` with manual file writes
-  (for example `echo > .workflow-level`).
-- Resolve command path using `command -v wf-init`.
-- If not found, fallback to `~/claude-model/bin/wf-init`.
-- If user does not provide `target_dir`, use default target `$PWD/.workflow`.
-- Preferred execution form: `[wf-init-bin] lX --confirm`.
-- Verification after execution:
-  - If command includes explicit `target_dir`,
-    marker must exist at `[target_dir]/.workflow-level`.
-  - Primary marker: `$PWD/.workflow/.workflow-level`.
-  - Marker file content must equal `lX`.
-- Only after verification passes, report initialization success.
-- Then provide post-init template.
+- Detailed command resolution and marker verification steps live in:
+  - `methodology/skills/wf-init-skill.md`
+- Keep this boundary in rules:
+  - never replace `wf-init` with manual file writes.
 
 Workflow auto-selection policy:
 
@@ -67,32 +64,12 @@ Workflow auto-selection policy:
   `.workflow/.workflow-level` for that request.
 - For normal conversation, no workflow selection is required.
 
-Post-init guidance policy:
+Post-init prompt templates:
 
-- After successful `wf-init lX --confirm`,
-  immediately provide a concise "next input template".
-- Do not wait for user to ask what to input next.
-- Language must follow user language:
-  - if user uses Chinese, return Chinese template
-  - if user uses English, return English template
-- The template must match initialized level:
-  - L1 template:
-    - Reason: [why this is a quick task]
-    - Project layout: use current repository layout only
-    - Task: [small change]
-  - L2 template:
-    - Reason: [why this is a feature task]
-    - Project layout: use current repository layout only
-    - Task: [new feature name]
-    - Acceptance criteria: [1-3 checks]
-    - Reference code paths:
-      - Directories: [dir1], [dir2]
-      - Files: [file1], [file2]
-  - L3 template:
-    - Reason: [why this is system-level]
-    - Project layout: use current repository layout only
-    - Goal: [system objective]
-    - Scope and constraints: [key boundaries]
+- Template generation details live in:
+  - `methodology/skills/post-init-template-skill.md`
+- Rule boundary:
+  - after successful init, provide concise next-step template immediately.
 
 Default task execution mode:
 

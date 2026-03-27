@@ -18,6 +18,7 @@
 - Standard（工作流原则）: `methodology/standards.md`
 - SOP（日常执行）: `methodology/sop.md`
 - Setup（macOS 环境）: `methodology/setup-macos.md`
+- Skills（执行手册）: `methodology/skills/`
 - 中文文档：`methodology/standards-zh.md`、`methodology/sop-zh.md`、`methodology/setup-macos-zh.md`
 
 ## 模板主路径
@@ -50,6 +51,8 @@ bash ./scripts/check-rule-adapters.sh
 - `methodology/setup-macos.md`
 - `methodology/setup-macos-zh.md`
 - `methodology/metrics-template.md`
+- `methodology/skills/wf-init-skill.md`
+- `methodology/skills/post-init-template-skill.md`
 
 ## 新电脑同步全局规则
 

@@ -2,6 +2,14 @@
 
 Workflow mode: L3 System Design.
 
+## Scope
+
+- This file defines L3-specific deltas.
+- Global rules remain source of truth for:
+  - workflow init and selection
+  - rule priority and doc read order
+  - default one-task mode and explicit complete-all override
+
 ## Required Artifacts Before Coding
 
 1. `.workflow/docs/PRD.md` updated
@@ -9,14 +17,10 @@ Workflow mode: L3 System Design.
 3. `.workflow/features/*/design.md` created
 4. `.workflow/features/*/tasks.md` created
 
-## Execution Rules
+## L3-Specific Execution Rules
 
 - Confirm large-scope objective first.
-- Default: implement only the next unfinished task.
-- Default: implement one task per run, then stop.
-- Override (explicit user request only): if user explicitly asks to complete all unfinished tasks, implement tasks sequentially in order until all tasks are done or blocked.
-- Update task status after task completion.
-- In override mode, update task status continuously and stop immediately on blocker or test failure.
+- Keep task status in sync with completed work.
 
 ## Repository Layout
 

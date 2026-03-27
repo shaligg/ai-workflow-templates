@@ -18,6 +18,7 @@ Script index:
 - Standard (workflow principles): `methodology/standards.md`
 - SOP (daily execution): `methodology/sop.md`
 - Setup (macOS environment): `methodology/setup-macos.md`
+- Skills (operational playbooks): `methodology/skills/`
 - Chinese docs: `methodology/standards-zh.md`, `methodology/sop-zh.md`, `methodology/setup-macos-zh.md`
 
 ## Canonical Template Paths
@@ -50,6 +51,8 @@ bash ./scripts/check-rule-adapters.sh
 - `methodology/setup-macos.md` (canonical)
 - `methodology/setup-macos-zh.md` (canonical)
 - `methodology/metrics-template.md`
+- `methodology/skills/wf-init-skill.md`
+- `methodology/skills/post-init-template-skill.md`
 
 ## Sync Global Rules on New Machine
 
