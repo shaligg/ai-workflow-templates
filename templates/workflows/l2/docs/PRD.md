@@ -1,14 +1,14 @@
 # Product Requirements Document (Project-level)
 
-This file is project-level context, not a single-feature request doc.
+Project-level context, not single-feature request text.
 
 Use this file for:
 
-- long-term product goals
-- global constraints and shared assumptions
+- long-term goals
+- shared constraints/assumptions
 - cross-feature non-functional requirements
 
-For each independent feature request, create and maintain:
+Per independent feature, maintain:
 
 - `.workflow/features/<id>-<name>/requirements.md` (feature-level requirement doc)
 - `.workflow/features/<id>-<name>/design.md`
@@ -16,16 +16,15 @@ For each independent feature request, create and maintain:
 
 ## Project Goal
 
-Describe long-term project objective.
+<long-term project objective>
 
 ## Global Constraints
 
-List constraints that apply to all features.
+- <global-constraint-1>
+- <global-constraint-2>
 
 ## Cross-feature Non-functional Requirements
 
-Example:
-
-- security baseline
-- observability baseline
-- performance baseline
+- <security baseline>
+- <observability baseline>
+- <performance baseline>

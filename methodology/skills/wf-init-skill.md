@@ -28,6 +28,7 @@ Execute `wf-init` reliably and verify activation marker correctly.
 - Otherwise:
   - marker path: `$PWD/.workflow/.workflow-level`
 - Verify marker exists and content equals requested level (`l1/l2/l3`).
+- If target basename is `.workflow`, also verify project-root `AGENTS.md` exists.
 
 ## Failure Handling
 

@@ -1,12 +1,13 @@
 # L3 System Design Template
 
-Use this template for large system work.
+For large, architecture-impacting changes.
 
 Flow:
 
-1. Update PRD
-2. Update architecture
-3. Create detailed feature design
-4. Create task breakdown
-5. Default: implement incrementally one task per run (explicit user request can switch to complete-all mode)
-6. Review
+1. Create feature docs (recommended):
+   `bash .workflow/scripts/create-feature.sh <name>`
+2. Update PRD.
+3. Update architecture.
+4. Create feature design.
+5. Create tasks.
+6. Default: one task per run; complete-all only on explicit user request.

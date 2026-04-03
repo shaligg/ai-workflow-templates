@@ -2,37 +2,35 @@
 
 ## Feature Name
 
-Describe the feature.
+<feature-name>
 
 ## Overview
 
-Explain the purpose of this feature.
+<2-5 lines summary: goal, boundary, expected outcome>
 
-## Agent Rules
+## Agent Context
 
 Read and follow: .workflow/AGENTS.md, .workflow/RULES.md, .workflow/docs/ARCHITECTURE.md.
 
-## API
+## API / Interface Changes
 
-List endpoints if applicable.
+- <endpoint or interface change>
 
-Example:
+## Core Flow
 
-POST /api/login
+1. <step-1>
+2. <step-2>
+3. <step-3>
 
-## Components
+## Data / State Changes
 
-List services and modules involved.
+- <schema/state/config changes>
 
-Example:
+## Risks / Rollback
 
-auth_service  
-jwt_service
+- <key risk>
+- <rollback note>
 
-## Database
+## Open Questions (TODO)
 
-Describe schema changes.
-
-## Dependencies
-
-External libraries if required.
+- <unknown-1>

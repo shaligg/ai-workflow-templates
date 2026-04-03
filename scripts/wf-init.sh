@@ -9,6 +9,8 @@ Initializes repository with workflow template files.
 Behavior is non-destructive: existing files are not overwritten.
 Default target_dir is "$PWD/.workflow".
 Writes/updates <target_dir>/.workflow-level.
+If target_dir basename is ".workflow", creates project-root AGENTS.md
+when missing (non-destructive).
 EOF
 }
 
@@ -94,6 +96,7 @@ fi
 
 created=0
 skipped=0
+project_agents_status="not-applicable"
 
 while IFS= read -r src; do
   rel="${src#"$template_dir"/}"
@@ -112,8 +115,28 @@ done < <(find "$template_dir" -type f)
 
 printf '%s\n' "$level" > "$target_dir/.workflow-level"
 
+if [ "$(basename "$target_dir")" = ".workflow" ]; then
+  project_root="$(cd "$target_dir/.." && pwd)"
+  project_agents_file="$project_root/AGENTS.md"
+  if [ -e "$project_agents_file" ]; then
+    project_agents_status="skipped-existing ($project_agents_file)"
+  else
+    cat > "$project_agents_file" <<'EOF'
+# Project Agent Entry
+
+Before implementation, read and follow:
+
+1. `.workflow/AGENTS.md`
+2. `.workflow/RULES.md`
+3. `.workflow/docs/ARCHITECTURE.md`
+EOF
+    project_agents_status="created ($project_agents_file)"
+  fi
+fi
+
 echo "Workflow initialized: $level"
 echo "Target directory: $target_dir"
 echo "Created files: $created"
 echo "Skipped existing files: $skipped"
 echo ".workflow-level updated to: $level (in $target_dir)"
+echo "Project AGENTS.md: $project_agents_status"

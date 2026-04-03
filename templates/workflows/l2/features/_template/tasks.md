@@ -2,18 +2,22 @@
 
 Rules:
 
-- Follow sizing and split rules in `.workflow/RULES.md`.
+- Follow `.workflow/RULES.md`.
+- Keep tasks small and executable.
 
 ---
 
-- [ ] Task 1: create core model
-file:
+- [ ] Task 1: <title>
+files:
+tests:
+notes:
 
-- [ ] Task 2: implement service logic
-file:
+- [ ] Task 2: <title>
+files:
+tests:
+notes:
 
-- [ ] Task 3: add API endpoint
-file:
-
-- [ ] Task 4: write tests
-file:
+- [ ] Task 3: <title>
+files:
+tests:
+notes:

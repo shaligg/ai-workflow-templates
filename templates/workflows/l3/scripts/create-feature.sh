@@ -8,8 +8,8 @@ Usage:
   create-feature.sh <id> <name>
 
 Examples:
-  create-feature.sh payment-system
-  create-feature.sh 003 payment-system
+  create-feature.sh payment-refactor
+  create-feature.sh 010 payment-refactor
 EOF
 }
 
@@ -82,11 +82,16 @@ if [ -e "$dir" ]; then
 fi
 
 mkdir -p "$dir"
-cp "$template_dir/requirements.md" "$dir/requirements.md"
-cp "$template_dir/design.md" "$dir/design.md"
-cp "$template_dir/tasks.md" "$dir/tasks.md"
+copied=0
 
-for f in "$dir/requirements.md" "$dir/design.md"; do
+while IFS= read -r src; do
+  dst="$dir/$(basename "$src")"
+  cp "$src" "$dst"
+  copied=$((copied + 1))
+done < <(find "$template_dir" -maxdepth 1 -type f -name "*.md" | sort)
+
+for f in "$dir"/*.md; do
+  [ -f "$f" ] || continue
   tmp="$f.tmp"
   sed "s/<feature-name>/$name/g" "$f" > "$tmp"
   mv "$tmp" "$f"
@@ -95,3 +100,4 @@ done
 echo "Feature created: $dir"
 echo "Feature id: $id"
 echo "Feature name: $name"
+echo "Files copied: $copied"

@@ -94,13 +94,20 @@ else
   fail "Rule adapter check failed"
 fi
 
+step "Workflow drift check"
+if bash scripts/check-workflow-drift.sh; then
+  pass "Workflow drift check passed"
+else
+  fail "Workflow drift check failed"
+fi
+
 if [ "$skip_shell" = false ]; then
   step "ShellCheck"
   if require_cmd shellcheck; then
     sh_files=()
     while IFS= read -r f; do
       sh_files+=("$f")
-    done < <(find scripts templates/workflows/l2/scripts -type f -name "*.sh" | sort)
+    done < <(find scripts templates/workflows/l2/scripts templates/workflows/l3/scripts -type f -name "*.sh" | sort)
 
     if [ "${#sh_files[@]}" -eq 0 ]; then
       pass "No shell scripts found"

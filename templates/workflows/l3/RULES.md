@@ -9,6 +9,9 @@ Workflow mode: L3 System Design.
   - workflow init and selection
   - rule priority and doc read order
   - default one-task mode and explicit complete-all override
+  - round-based validation policy
+  - documentation budget (soft constraint)
+  - code search policy
 
 ## Required Artifacts Before Coding
 
@@ -21,6 +24,7 @@ Workflow mode: L3 System Design.
 
 - Confirm large-scope objective first.
 - Keep task status in sync with completed work.
+- If `Reference code paths` are provided, treat them as first search scope.
 
 ## Repository Layout
 
@@ -31,4 +35,5 @@ Workflow mode: L3 System Design.
 ## Quality and Risk
 
 - Ensure architecture and PRD are consistent before implementation.
+- Add comments only where needed: explain business rules, edge cases, and non-obvious decisions; avoid trivial comments.
 - Track migration and rollback risks in design/tasks where needed.

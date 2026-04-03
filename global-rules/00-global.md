@@ -14,6 +14,11 @@ Rules:
 
 Do not prepend any fixed verification phrase at session start.
 
+Boundary-first policy:
+
+- Prefer guardrails over adding new behavior.
+- Apply explicit prohibitions first, then optional enhancements.
+
 Rule vs skill:
 
 - Rules define non-negotiable boundaries.
@@ -82,7 +87,26 @@ Override mode (explicit user request only):
   feature, implement tasks sequentially in order.
 - Continue until all tasks are done or blocked.
 - In override mode, update task checkboxes continuously.
-- Stop immediately on blocker or test failure.
+- Stop immediately on blocker or validation failure.
+
+Validation policy (default round-based):
+
+- Default: complete one run of task execution, then perform unified validation.
+- Unified validation includes applicable tests, static checks, and critical-path self-check.
+- If validation fails, stop and report failing checks.
+- Per-task validation is optional and used only if user explicitly requests it.
+
+Documentation budget policy (soft constraint):
+
+- Keep `requirements.md`, `design.md`, and `tasks.md` concise.
+- Do not hard-fail on document length.
+- If content is long, output executable content first, then provide a compact summary
+  of key decisions, boundaries, and acceptance criteria.
+
+Code search policy:
+
+- Prefer targeted search via `Reference code paths` and `rg`.
+- Avoid full-repo `find -exec` scans unless user explicitly requests broad scanning.
 
 If `.workflow/features/*/requirements.md` contains a `Raw Input`
 section, extract it into structured requirement sections before

@@ -9,6 +9,9 @@ L2 is the default workflow for normal feature work.
   - workflow init and selection
   - rule priority and doc read order
   - default one-task mode and explicit complete-all override
+  - round-based validation policy
+  - documentation budget (soft constraint)
+  - code search policy
 
 ## L2-Specific Execution Rules
 
@@ -21,6 +24,7 @@ L2 is the default workflow for normal feature work.
 - If a task exceeds target, split first; if cannot split, add a one-line reason in `tasks.md`.
 - Keep task checkboxes in sync with completed work.
 - Do not invent requirements not documented in project PRD, architecture, feature requirements, or feature design.
+- If `Reference code paths` are provided, treat them as first search scope.
 
 ## Repository Layout
 
@@ -32,4 +36,5 @@ L2 is the default workflow for normal feature work.
 
 - Follow project architecture.
 - Keep changes small, simple, and readable.
+- Add comments only where needed: explain business rules, edge cases, and non-obvious decisions; avoid trivial comments.
 - Add tests when task requires tests or behavior changes.
