@@ -32,6 +32,8 @@ jobs:
         run: bash scripts/check-rule-adapters.sh
       - name: Check workflow drift
         run: bash scripts/check-workflow-drift.sh
+      - name: Check doc links
+        run: bash scripts/check-doc-links.sh
 
   secrets:
     runs-on: ubuntu-latest

@@ -101,6 +101,13 @@ else
   fail "Workflow drift check failed"
 fi
 
+step "Doc link check"
+if bash scripts/check-doc-links.sh; then
+  pass "Doc link check passed"
+else
+  fail "Doc link check failed"
+fi
+
 if [ "$skip_shell" = false ]; then
   step "ShellCheck"
   if require_cmd shellcheck; then
