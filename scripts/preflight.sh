@@ -94,6 +94,13 @@ else
   fail "Rule adapter check failed"
 fi
 
+step "Rule duplication check"
+if bash scripts/check-rule-duplication.sh; then
+  pass "Rule duplication check passed"
+else
+  fail "Rule duplication check failed"
+fi
+
 step "Workflow drift check"
 if bash scripts/check-workflow-drift.sh; then
   pass "Workflow drift check passed"

@@ -30,6 +30,8 @@ jobs:
           scandir: ./scripts ./templates/workflows/l2/scripts ./templates/workflows/l3/scripts
       - name: Check workflow rule adapters
         run: bash scripts/check-rule-adapters.sh
+      - name: Check workflow rule duplication
+        run: bash scripts/check-rule-duplication.sh
       - name: Check workflow drift
         run: bash scripts/check-workflow-drift.sh
       - name: Check doc links
