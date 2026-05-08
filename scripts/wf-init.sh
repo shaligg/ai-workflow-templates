@@ -11,6 +11,7 @@ Default target_dir is "$PWD/.workflow".
 Writes/updates <target_dir>/.workflow-level.
 If target_dir basename is ".workflow", creates project-root AGENTS.md
 when missing (non-destructive).
+For l2/l3, auto-creates the first feature directory when none exists.
 EOF
 }
 
@@ -97,6 +98,7 @@ fi
 created=0
 skipped=0
 project_agents_status="not-applicable"
+auto_feature_status="not-applicable"
 
 while IFS= read -r src; do
   rel="${src#"$template_dir"/}"
@@ -126,11 +128,33 @@ if [ "$(basename "$target_dir")" = ".workflow" ]; then
 
 Before implementation, read and follow:
 
-1. `.workflow/AGENTS.md`
-2. `.workflow/RULES.md`
+1. `.workflow/RULES.md`
+2. `.workflow/docs/PRD.md`
 3. `.workflow/docs/ARCHITECTURE.md`
+4. `.workflow/features/*/design.md`
+5. `.workflow/features/*/tasks.md`
 EOF
     project_agents_status="created ($project_agents_file)"
+  fi
+fi
+
+if [ "$level" = "l2" ] || [ "$level" = "l3" ]; then
+  feature_root="$target_dir/features"
+  feature_script="$target_dir/scripts/create-feature.sh"
+  default_feature_name="${WF_INIT_DEFAULT_FEATURE_NAME:-new-feature}"
+
+  if [ ! -d "$feature_root" ]; then
+    auto_feature_status="skipped-missing-features-dir ($feature_root)"
+  elif find "$feature_root" -maxdepth 1 -type d -name '[0-9][0-9][0-9]-*' | grep -q .; then
+    auto_feature_status="skipped-existing-feature"
+  elif [ -f "$feature_script" ]; then
+    if bash "$feature_script" "$default_feature_name" >/dev/null 2>&1; then
+      auto_feature_status="created (name=$default_feature_name)"
+    else
+      auto_feature_status="failed ($feature_script)"
+    fi
+  else
+    auto_feature_status="skipped-missing-script ($feature_script)"
   fi
 fi
 
@@ -140,3 +164,4 @@ echo "Created files: $created"
 echo "Skipped existing files: $skipped"
 echo ".workflow-level updated to: $level (in $target_dir)"
 echo "Project AGENTS.md: $project_agents_status"
+echo "Auto feature: $auto_feature_status"

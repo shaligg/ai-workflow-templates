@@ -70,12 +70,19 @@ Code search policy:
 EOF
 }
 
+check_l1_rules() {
+  local rules_file="$REPO_ROOT/templates/workflows/l1/RULES.md"
+  require_file "$rules_file"
+  require_contains "$rules_file" "# Workflow Rules (L1)"
+  require_contains "$rules_file" "Workflow mode: L1 Quick Task."
+}
+
 check_templates() {
   local l2_design="$REPO_ROOT/templates/workflows/l2/features/_template/design.md"
   local l3_design="$REPO_ROOT/templates/workflows/l3/features/_template/design.md"
   local l2_tasks="$REPO_ROOT/templates/workflows/l2/features/_template/tasks.md"
   local l3_tasks="$REPO_ROOT/templates/workflows/l3/features/_template/tasks.md"
-  local agent_context_line="Read and follow: .workflow/AGENTS.md, .workflow/RULES.md, .workflow/docs/ARCHITECTURE.md."
+  local agent_context_line="Read and follow: .workflow/RULES.md, .workflow/docs/ARCHITECTURE.md."
 
   require_contains "$l2_design" "$agent_context_line"
   require_contains "$l3_design" "$agent_context_line"
@@ -89,11 +96,15 @@ check_templates() {
 check_wf_init_contract() {
   local wf_init_file="$REPO_ROOT/scripts/wf-init.sh"
   require_contains "$wf_init_file" "Project AGENTS.md"
+  require_contains "$wf_init_file" ".workflow/docs/PRD.md"
   require_contains "$wf_init_file" ".workflow/docs/ARCHITECTURE.md"
+  require_contains "$wf_init_file" ".workflow/features/*/design.md"
+  require_contains "$wf_init_file" ".workflow/features/*/tasks.md"
 }
 
 check_required_layout() {
   require_file "$REPO_ROOT/templates/workflows/l1/README.md"
+  require_file "$REPO_ROOT/templates/workflows/l1/RULES.md"
   require_file "$REPO_ROOT/templates/workflows/l2/README.md"
   require_file "$REPO_ROOT/templates/workflows/l3/README.md"
 
@@ -102,7 +113,6 @@ check_required_layout() {
   require_file "$REPO_ROOT/templates/workflows/l3/docs/PRD.md"
   require_file "$REPO_ROOT/templates/workflows/l3/docs/ARCHITECTURE.md"
 
-  require_file "$REPO_ROOT/templates/workflows/l2/features/_template/requirements.md"
   require_file "$REPO_ROOT/templates/workflows/l2/features/_template/design.md"
   require_file "$REPO_ROOT/templates/workflows/l2/features/_template/tasks.md"
   require_file "$REPO_ROOT/templates/workflows/l3/features/_template/design.md"
@@ -112,6 +122,7 @@ check_required_layout() {
   require_file "$REPO_ROOT/templates/workflows/l3/scripts/create-feature.sh"
 }
 
+check_l1_rules
 check_level_rules "l2"
 check_level_rules "l3"
 check_templates
