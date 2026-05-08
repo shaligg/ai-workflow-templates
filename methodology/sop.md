@@ -71,9 +71,9 @@ Layout rule (all levels):
 
 ### L2
 
-1. Paste raw requirement text into `.workflow/features/<id>/requirements.md` (`Raw Input`).
-2. Extract and normalize `.workflow/features/<id>/requirements.md`.
-3. Generate `.workflow/features/<id>/design.md`.
+1. Paste raw requirement text into `.workflow/features/<id>/design.md` (`Raw Input`).
+2. Extract and structure requirements in design.md.
+3. Complete design sections in `.workflow/features/<id>/design.md`.
 4. Generate `.workflow/features/<id>/tasks.md`.
 5. Default: implement next unfinished task only.
 6. Default: mark one task done and stop.
@@ -126,7 +126,7 @@ Recommended:
 
 ### L2 done
 
-- `requirements.md`, `design.md` and `tasks.md` exist
+- `design.md` and `tasks.md` exist
 - all tasks checked
 - tests/review passed
 
@@ -139,5 +139,5 @@ Recommended:
 ## 8. Fast Troubleshooting
 
 - Rules not applied: check `$CLAUDE_CONFIG_DIR/rules/*.md`.
-- Wrong directory: ensure `.workflow/AGENTS.md` exists in current repo.
+- Wrong directory: ensure `.workflow/RULES.md` exists in current repo.
 - Init failed: use explicit `wf-init lX --confirm`.

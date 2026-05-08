@@ -87,13 +87,6 @@ require_cmd() {
   return 0
 }
 
-step "Rule adapter check"
-if bash scripts/check-rule-adapters.sh; then
-  pass "Rule adapter check passed"
-else
-  fail "Rule adapter check failed"
-fi
-
 step "Rule duplication check"
 if bash scripts/check-rule-duplication.sh; then
   pass "Rule duplication check passed"

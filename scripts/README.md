@@ -6,8 +6,7 @@ This file is the centralized index for scripts under `scripts/`.
 
 | Script | Purpose | When to Use | Recommended |
 |---|---|---|---|
-| `preflight.sh` | Run local quality checks aligned with CI (`rule adapters`, `shell`, `markdown`, `gitleaks`). | Before commit/push to avoid CI red checks. | Yes |
-| `check-rule-adapters.sh` | Verify `templates/workflows/l1~l3` rule adapter files still point to `RULES.md` and required files exist. | Before commit/PR, or in CI. | Yes |
+| `preflight.sh` | Run local quality checks aligned with CI (`shell`, `markdown`, `gitleaks`). | Before commit/push to avoid CI red checks. | Yes |
 | `check-rule-duplication.sh` | Verify global workflow policies are defined in `global-rules/00-global.md` only and not duplicated in L2/L3 `RULES.md`. | Before commit/PR, or in CI. | Yes |
 | `check-workflow-drift.sh` | Verify workflow templates and level rules stay aligned (agent-context line, tasks fields, no global-policy duplication in level rules). | Before commit/PR, or in CI. | Yes |
 | `check-doc-links.sh` | Verify local markdown links in workflow/methodology/docs index files resolve to existing paths. | Before commit/PR, or in CI. | Yes |

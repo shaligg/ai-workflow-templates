@@ -82,11 +82,10 @@ if [ -e "$dir" ]; then
 fi
 
 mkdir -p "$dir"
-cp "$template_dir/requirements.md" "$dir/requirements.md"
 cp "$template_dir/design.md" "$dir/design.md"
 cp "$template_dir/tasks.md" "$dir/tasks.md"
 
-for f in "$dir/requirements.md" "$dir/design.md"; do
+for f in "$dir/design.md"; do
   tmp="$f.tmp"
   sed "s/<feature-name>/$name/g" "$f" > "$tmp"
   mv "$tmp" "$f"

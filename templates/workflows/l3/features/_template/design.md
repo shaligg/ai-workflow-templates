@@ -8,9 +8,9 @@
 
 <system-level goal and expected impact>
 
-## Agent Context
+## Context
 
-Read and follow: .workflow/AGENTS.md, .workflow/RULES.md, .workflow/docs/ARCHITECTURE.md.
+Read and follow: .workflow/RULES.md, .workflow/docs/ARCHITECTURE.md.
 
 ## Architecture Delta
 

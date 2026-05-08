@@ -34,12 +34,11 @@
 对于每个工作流模板（`l1/l2/l3`）：
 
 - `RULES.md` 是工作流规则的单一真源。
-- `AGENTS.md`、`CLAUDE.md`、`.ai/rules.md`、`.claude/rules/10-project-workflow.md` 为指向 `RULES.md` 的适配文件。
 
 一致性检查：
 
 ```bash
-bash ./scripts/check-rule-adapters.sh
+bash ./scripts/check-workflow-drift.sh
 ```
 
 ## 文档列表

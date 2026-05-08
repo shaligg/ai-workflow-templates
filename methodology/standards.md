@@ -92,7 +92,7 @@ Use for:
 
 Flow:
 
-Feature request -> requirements.md -> design.md -> tasks.md -> implement one task at a time -> review
+Feature request -> design.md -> tasks.md -> implement one task at a time -> review
 
 L2 rules:
 
@@ -167,19 +167,17 @@ Recommended structure:
 ```text
 repo/
   .workflow/
-    AGENTS.md
-    CLAUDE.md
     RULES.md
-    .claude/rules/
-    .ai/rules.md
+    README.md
     docs/
       PRD.md
       ARCHITECTURE.md
     features/
       001-xxx/
-        requirements.md
         design.md
         tasks.md
+    scripts/
+      create-feature.sh
   src/
   tests/
 ```
@@ -198,20 +196,17 @@ Effective priority:
 
 1. global rules (tool-level)
 2. user preferences (tool-level)
-3. project rules (`.workflow/RULES.md`, `.workflow/AGENTS.md`, `.workflow/CLAUDE.md`, `.workflow/.claude/rules/*`, `.workflow/.ai/rules.md`)
-4. feature requirements (`.workflow/features/*/requirements.md`)
-5. feature design (`.workflow/features/*/design.md`)
-6. feature tasks (`.workflow/features/*/tasks.md`)
+3. project rules (`.workflow/RULES.md`)
+4. feature design (`.workflow/features/*/design.md`)
+5. feature tasks (`.workflow/features/*/tasks.md`)
 
 Read order inside project:
 
-1. `.workflow/AGENTS.md`
-2. `.workflow/RULES.md` (if present)
-3. `.workflow/docs/PRD.md`
-4. `.workflow/docs/ARCHITECTURE.md`
-5. `.workflow/features/*/requirements.md`
-6. `.workflow/features/*/design.md`
-7. `.workflow/features/*/tasks.md`
+1. `.workflow/RULES.md`
+2. `.workflow/docs/PRD.md`
+3. `.workflow/docs/ARCHITECTURE.md`
+4. `.workflow/features/*/design.md`
+5. `.workflow/features/*/tasks.md`
 
 ---
 
@@ -254,9 +249,9 @@ L2 prompt:
 ```text
 Workflow Selection: L2
 Feature: <name>
-Step 1: put raw requirement text into .workflow/features/<id>/requirements.md (Raw Input)
-Step 2: extract structured .workflow/features/<id>/requirements.md
-Step 3: generate .workflow/features/<id>/design.md
+Step 1: put raw requirement text into .workflow/features/<id>/design.md (Raw Input)
+Step 2: extract structured requirements in design.md
+Step 3: complete design sections in .workflow/features/<id>/design.md
 Step 4: generate .workflow/features/<id>/tasks.md
 Step 5: implement next unfinished task only
 ```
@@ -282,7 +277,7 @@ L1 done when:
 
 L2 done when:
 
-- requirements, design and tasks exist
+- design and tasks exist
 - all tasks complete
 - tests and review pass
 

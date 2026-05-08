@@ -92,7 +92,7 @@ L1 交付物：
 
 流程：
 
-Feature 需求 -> requirements.md -> design.md -> tasks.md -> 按任务逐个实现 -> 评审
+Feature 需求 -> design.md -> tasks.md -> 按任务逐个实现 -> 评审
 
 L2 规则：
 
@@ -165,19 +165,17 @@ Effective now. Re-plan from current state.
 ```text
 repo/
   .workflow/
-    AGENTS.md
-    CLAUDE.md
     RULES.md
-    .claude/rules/
-    .ai/rules.md
+    README.md
     docs/
       PRD.md
       ARCHITECTURE.md
     features/
       001-xxx/
-        requirements.md
         design.md
         tasks.md
+    scripts/
+      create-feature.sh
   src/
   tests/
 ```
@@ -196,20 +194,17 @@ repo/
 
 1. 全局规则（工具级）
 2. 用户偏好（工具级）
-3. 项目规则（`.workflow/RULES.md`、`.workflow/AGENTS.md`、`.workflow/CLAUDE.md`、`.workflow/.claude/rules/*`、`.workflow/.ai/rules.md`）
-4. Feature 需求（`.workflow/features/*/requirements.md`）
-5. Feature 设计（`.workflow/features/*/design.md`）
-6. Feature 任务（`.workflow/features/*/tasks.md`）
+3. 项目规则（`.workflow/RULES.md`）
+4. Feature 设计（`.workflow/features/*/design.md`）
+5. Feature 任务（`.workflow/features/*/tasks.md`）
 
 项目内读取顺序：
 
-1. `.workflow/AGENTS.md`
-2. `.workflow/RULES.md`（如存在）
-3. `.workflow/docs/PRD.md`
-4. `.workflow/docs/ARCHITECTURE.md`
-5. `.workflow/features/*/requirements.md`
-6. `.workflow/features/*/design.md`
-7. `.workflow/features/*/tasks.md`
+1. `.workflow/RULES.md`
+2. `.workflow/docs/PRD.md`
+3. `.workflow/docs/ARCHITECTURE.md`
+4. `.workflow/features/*/design.md`
+5. `.workflow/features/*/tasks.md`
 
 ---
 
@@ -252,9 +247,9 @@ L2 示例：
 ```text
 Workflow Selection: L2
 Feature: <name>
-Step 1: 先把原始需求粘贴到 .workflow/features/<id>/requirements.md 的 Raw Input
-Step 2: 提炼结构化 .workflow/features/<id>/requirements.md
-Step 3: generate .workflow/features/<id>/design.md
+Step 1: 先把原始需求粘贴到 .workflow/features/<id>/design.md 的 Raw Input
+Step 2: 提炼结构化 requirements 章节
+Step 3: 完成 .workflow/features/<id>/design.md 的设计部分
 Step 4: generate .workflow/features/<id>/tasks.md
 Step 5: implement next unfinished task only
 ```
@@ -280,7 +275,7 @@ L1 完成标准：
 
 L2 完成标准：
 
-- 已有 requirements、design 与 tasks
+- 已有 design 与 tasks
 - 任务全部完成
 - 测试与评审通过
 

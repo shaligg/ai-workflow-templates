@@ -2,13 +2,11 @@
 
 When working in a repository read documentation in this order:
 
-1. .workflow/AGENTS.md
-2. .workflow/RULES.md (if present)
-3. .workflow/docs/PRD.md
-4. .workflow/docs/ARCHITECTURE.md
-5. .workflow/features/*/requirements.md (if present)
-6. .workflow/features/*/design.md
-7. .workflow/features/*/tasks.md
+1. .workflow/RULES.md
+2. .workflow/docs/PRD.md
+3. .workflow/docs/ARCHITECTURE.md
+4. .workflow/features/*/design.md
+5. .workflow/features/*/tasks.md
 
 Rules:
 
@@ -98,7 +96,7 @@ Validation policy (default round-based):
 
 Documentation budget policy (soft constraint):
 
-- Keep `requirements.md`, `design.md`, and `tasks.md` concise.
+- Keep `design.md` and `tasks.md` concise.
 - Do not hard-fail on document length.
 - If content is long, output executable content first, then provide a compact summary
   of key decisions, boundaries, and acceptance criteria.
@@ -108,13 +106,12 @@ Code search policy:
 - Prefer targeted search via `Reference code paths` and `rg`.
 - Avoid full-repo `find -exec` scans unless user explicitly requests broad scanning.
 
-If `.workflow/features/*/requirements.md` contains a `Raw Input`
+If `.workflow/features/*/design.md` contains a `Raw Input`
 section, extract it into structured requirement sections before
-writing design/tasks.
+writing tasks.
 
 Do not invent requirements not defined in:
 
 - `.workflow/docs/PRD.md`
 - `.workflow/docs/ARCHITECTURE.md`
-- `.workflow/features/*/requirements.md`
 - `.workflow/features/*/design.md`

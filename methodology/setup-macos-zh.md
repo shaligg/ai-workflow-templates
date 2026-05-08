@@ -86,7 +86,7 @@ ai-dev/global-rules/01-user-preferences.md
 
 `00-global.md` 推荐包含：
 
-- 文档读取顺序（`.workflow/AGENTS.md`、`PRD`、`ARCHITECTURE`、Feature 文档）
+- 文档读取顺序（`.workflow/RULES.md`、`PRD`、`ARCHITECTURE`、Feature 文档）
 - 工作流初始化策略（仅显式命令）
 - 单次只实现一个任务
 
@@ -97,18 +97,14 @@ ai-dev/global-rules/01-user-preferences.md
 每个仓库建议包含：
 
 ```text
-.workflow/AGENTS.md
-.workflow/CLAUDE.md
 .workflow/RULES.md
-.workflow/.claude/rules/
-.workflow/.ai/rules.md
 .workflow/docs/PRD.md
 .workflow/docs/ARCHITECTURE.md
 .workflow/features/*/design.md
 .workflow/features/*/tasks.md
 ```
 
-`README.md` 给人看，AI 规则应写在 `.workflow/AGENTS.md` 和规则文件中。
+`README.md` 给人看，AI 规则应写在 `.workflow/RULES.md` 中。
 
 ---
 

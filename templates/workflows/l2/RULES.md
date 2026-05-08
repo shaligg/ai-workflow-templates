@@ -15,15 +15,15 @@ L2 is the default workflow for normal feature work.
 
 ## L2-Specific Execution Rules
 
-- If `.workflow/features/*/requirements.md` contains `Raw Input`,
-  extract and rewrite it into structured sections before writing
-  `design.md` and `tasks.md`.
+- If `.workflow/features/*/design.md` contains `Raw Input`,
+  extract and rewrite it into structured requirement sections before writing
+  `tasks.md`.
 - During extraction, do not invent requirements not present in the raw input or project docs.
 - Task sizing target: each task modifies <= 4 files.
 - Task sizing target: each task <= 400 lines of code.
 - If a task exceeds target, split first; if cannot split, add a one-line reason in `tasks.md`.
 - Keep task checkboxes in sync with completed work.
-- Do not invent requirements not documented in project PRD, architecture, feature requirements, or feature design.
+- Do not invent requirements not documented in project PRD, architecture, or feature design.
 - If `Reference code paths` are provided, treat them as first search scope.
 
 ## Repository Layout

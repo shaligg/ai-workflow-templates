@@ -10,7 +10,7 @@ Use this file for:
 
 Per independent feature, maintain:
 
-- `.workflow/features/<id>-<name>/requirements.md` (feature-level requirement doc)
+- `.workflow/features/<id>-<name>/design.md` (feature-level requirements + design)
 - `.workflow/features/<id>-<name>/design.md`
 - `.workflow/features/<id>-<name>/tasks.md`
 

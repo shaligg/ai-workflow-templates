@@ -48,7 +48,7 @@
 ## P1（短期，稳定性增强）
 
 1. Feature 文档模板最小化
-- `requirements.md/design.md/tasks.md` 只保留“执行所需字段”，去掉长篇说明。
+- `design.md/tasks.md` 只保留”执行所需字段”，去掉长篇说明。
 - 将说明性内容放入 `methodology/`，避免每次任务重复注入。
 
 2. 增加“引用完整性”检查

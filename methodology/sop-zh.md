@@ -71,13 +71,13 @@ Reason: add new feature with API + service changes
 
 ### L2
 
-1. 将原始需求粘贴到 `.workflow/features/<id>/requirements.md` 的 `Raw Input`。
-2. 提炼并规范化 `.workflow/features/<id>/requirements.md`。
-3. 生成 `.workflow/features/<id>/design.md`。
+1. 将原始需求粘贴到 `.workflow/features/<id>/design.md` 的 `Raw Input`。
+2. 提炼并结构化 design.md 中的需求章节。
+3. 完成 `.workflow/features/<id>/design.md` 的设计部分。
 4. 生成 `.workflow/features/<id>/tasks.md`。
 5. 默认只实现下一个未完成任务。
 6. 默认勾选一个任务后停止。
-7. 如果用户明确要求“全部完成任务”，则按顺序连续执行直到全部完成或遇阻断。
+7. 如果用户明确要求”全部完成任务”，则按顺序连续执行直到全部完成或遇阻断。
 8. 做评审。
 
 ### L3
@@ -126,7 +126,7 @@ Effective now. Re-plan from current state.
 
 ### L2 完成
 
-- 已有 `requirements.md`、`design.md` 和 `tasks.md`
+- 已有 `design.md` 和 `tasks.md`
 - 任务全部勾选
 - 测试和评审通过
 
@@ -139,5 +139,5 @@ Effective now. Re-plan from current state.
 ## 8. 快速排障
 
 - 规则未生效：检查 `$CLAUDE_CONFIG_DIR/rules/*.md`。
-- 目录不对：确认当前仓库有 `.workflow/AGENTS.md`。
+- 目录不对：确认当前仓库有 `.workflow/RULES.md`。
 - 初始化失败：使用显式命令 `wf-init lX --confirm`。

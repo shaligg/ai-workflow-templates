@@ -86,7 +86,7 @@ ai-dev/global-rules/01-user-preferences.md
 
 Recommended content in `00-global.md`:
 
-- read order (`.workflow/AGENTS.md`, `PRD`, `ARCHITECTURE`, feature design/tasks)
+- read order (`.workflow/RULES.md`, `PRD`, `ARCHITECTURE`, feature design/tasks)
 - workflow init policy (explicit commands only)
 - one-task-at-a-time rule
 
@@ -97,18 +97,14 @@ Recommended content in `00-global.md`:
 In each repository, include:
 
 ```text
-.workflow/AGENTS.md
-.workflow/CLAUDE.md
 .workflow/RULES.md
-.workflow/.claude/rules/
-.workflow/.ai/rules.md
 .workflow/docs/PRD.md
 .workflow/docs/ARCHITECTURE.md
 .workflow/features/*/design.md
 .workflow/features/*/tasks.md
 ```
 
-`README.md` is for humans; AI rules belong in `.workflow/AGENTS.md` and rule files.
+`README.md` is for humans; AI rules belong in `.workflow/RULES.md`.
 
 ---
 

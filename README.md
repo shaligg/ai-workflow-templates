@@ -34,12 +34,11 @@ Use these paths as source of truth:
 For each workflow template (`l1/l2/l3`):
 
 - `RULES.md` is the single source of truth for workflow rules.
-- `AGENTS.md`, `CLAUDE.md`, `.ai/rules.md`, and `.claude/rules/10-project-workflow.md` are adapter files that point to `RULES.md`.
 
 Consistency check:
 
 ```bash
-bash ./scripts/check-rule-adapters.sh
+bash ./scripts/check-workflow-drift.sh
 ```
 
 ## Methodology Docs
